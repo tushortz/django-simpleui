@@ -1,0 +1,33 @@
+{% load static i18n %}
+{% if user.is_autenticated %}
+<script src="{% static 'assets/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js' %}"></script>
+{% endif %}
+<!-- JS Implementing Plugins -->
+<script src="{% static 'assets/js/vendor.min.js' %}"></script>
+
+<!-- JS Front -->
+<script src="{% static 'assets/js/theme.min.js' %}"></script>
+<script src="{% static 'assets/js/leftnav.js' %}"></script>
+
+<!-- JS Plugins Init. -->
+<script>
+	$(document).on('ready', function () {
+		// INITIALIZATION OF SHOW PASSWORD
+		// =======================================================
+		$('.js-toggle-password').each(function () {
+			new HSTogglePassword(this).init()
+		});
+
+
+		// INITIALIZATION OF FORM VALIDATION
+		// =======================================================
+		$('.js-validate').each(function () {
+			$.HSCore.components.HSValidation.init($(this));
+		});
+	});
+</script>
+
+<!-- IE Support -->
+<script>
+	if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write(`<script src="{% static 'assets/vendor/babel-polyfill/polyfill.min.js' %}"><\/script>`);
+</script>

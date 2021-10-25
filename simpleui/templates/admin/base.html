@@ -1,0 +1,27 @@
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:" en-us" }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+
+<head>
+  <!-- Required Meta Tags Always Come First -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>{% block title %}{% endblock %}</title>
+
+  {% include "includes/stylesheet.html" %}
+</head>
+
+<body data-admin-utc-offset="{% now " Z" %}">
+  <!-- ========== MAIN CONTENT ========== -->
+  {%  block body %} {% endblock body %}
+  {%  block content %} {% endblock content %}
+  <!-- ========== END MAIN CONTENT ========== -->
+  {% include "includes/script.html" %}
+
+</body>
+
+</html>

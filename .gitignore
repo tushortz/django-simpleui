@@ -1,0 +1,11 @@
+author
+book
+library
+shelf
+*.db
+env/
+manage.py
+db.sqlite3
+__pycache__
+*.py[cd]
+.DS_STORE
